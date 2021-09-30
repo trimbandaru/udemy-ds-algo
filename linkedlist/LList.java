@@ -53,6 +53,24 @@ class LList {
     return null;
   }
 
+  public void reverse(){
+
+    Node curr,next,prev;
+    curr = this.head;
+    prev = null;
+
+    while(curr.getNext() != null){
+      next = curr.getNext();
+      curr.setNext(prev);
+      prev = curr;
+      curr = next;
+    }
+
+    this.head = curr;
+    this.head.setNext(prev);
+
+  }
+
   public void printLL(){
     System.out.println(this.head.getValue());
     Node cnode = this.head.getNext();
